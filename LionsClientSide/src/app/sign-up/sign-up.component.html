@@ -1,0 +1,101 @@
+
+<div id="bg">
+</div>
+
+<nav class="navbar fixed-top navbar-expand-lg navbar bg">
+    <a class="navbar-brand"
+    href="login" style="color:white; font-family: Forte; font-size: 50px;">
+    <i>LionsEventTracker</i></a>
+  </nav>
+
+<div class="container" >
+  <div class="card card-container">
+
+    <img id="profile-img"
+    class="profile-img-card"
+    src="/src/assets/register.gif" />
+
+    <p id="profile-name"
+    class="profile-name-card"></p>
+
+   <form class="form-signin"
+    (ngSubmit)="signUpUser($event, f)"
+    #f="ngForm"
+    [noValidate]>
+
+    <!-- FirstName -->
+      <input type="text"
+      id="inputFirstName"
+      class="form-control"
+      placeholder="First Name *"
+      name="FirstName"
+      [(ngModel)]="user.FirstName"
+      #FirstName="ngModel"
+      required>
+
+    <!-- LastName -->
+      <input type="text"
+      id="inputLastName"
+      class="form-control"
+      placeholder="Last Name *"
+      name="LastName"
+      [(ngModel)]="user.LastName"
+      #LastName="ngModel"
+      required>
+
+    <!-- UserName -->
+      <input type="text"
+      id="inputUserName"
+      class="form-control"
+      placeholder="Username *"
+      name="username"
+      [(ngModel)]="user.UserName"
+      #username="ngModel"
+      required>
+
+    <!-- Email -->
+      <input type="email"
+      id="inputEmail"
+      email
+      class="form-control"
+      placeholder="Email *"
+      name="email"
+      #Email="ngModel"
+      [(ngModel)]="user.Email"
+      required>
+     <span *ngIf="Email.invalid && Email.touched">
+     Invalid Email
+     </span>
+
+<!--Password-->
+  <input type="password" 
+  id="inputPassword" 
+  class="form-control" 
+  placeholder=" Password *" 
+  minlength="6" 
+  name="password" 
+  [(ngModel)]="user.password"
+   #password="ngModel" required>
+  <div class="text-danger" *ngIf ="password.invalid && (password.dirty || password.touched)">Required Minimum 6 character!</div>
+
+<!--Confirm Password-->
+    <input type="password" id="inputPassword" class="form-control" placeholder=" Confirm Password *" name="cpassword"
+     ngModel #cpassword="ngModel" 
+     required compare="password">
+    <div class="text-danger" *ngIf ="cpassword.invalid && (cpassword.dirty || cpassword.touched)">
+      <div *ngIf="cpassword.errors['required']">Password confirm is required</div>
+      <div *ngIf="cpassword.errors['compare']">Password do not match</div>
+</div>
+
+    <!-- SignUpButton -->
+      <button class="btn btn-lg btn-primary btn-block btn-submit"
+      type="submit"
+      [disabled]="!f.valid"
+      value="Sign-Up" >
+      Register
+      </button>
+      <hr/>
+   </form>
+   
+  </div>
+</div>

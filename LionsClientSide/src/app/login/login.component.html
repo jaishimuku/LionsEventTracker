@@ -1,0 +1,76 @@
+<div id="bg">
+</div>
+
+<nav class="navbar fixed-top navbar-expand-lg navbar bg">
+    <a class="navbar-brand"
+    href="home" style="color:white; font-family: Forte; font-size: 50px;">
+    <i>LionsEventTracker</i></a>
+  </nav>
+<div class="container">
+  <div class="card card-container">
+    <img id="profile-img"
+    class="profile-img-card"
+    src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+
+    <p id="profile-name" class="profile-name-card"></p>
+
+   <form (ngSubmit)="logInUser($event, f)"
+    class="form-signin"
+    #f="ngForm" [noValidate]>
+
+      <!--  UserName -->
+      <input type="text"
+      id="inputUserName"
+      class="form-control"
+      placeholder="Username"
+      name="username"
+      [(ngModel)]="user.UserName"
+      #username="ngModel"
+      required>
+
+      <!-- Password -->
+      <input type="password"
+      id="inputPassword"
+      class="form-control"
+      placeholder="Password"
+      name="Password"
+      [(ngModel)]="user.Password"
+      #password="ngModel"
+      required>
+
+      <!--Log in fail error message-->
+     <div id="logInError" class="error" *ngIf="errorMessage === 'Invalid'" >
+     <Label>Invalid Username or Password</Label>
+     </div>
+
+     <!--Not Verified-->
+     <div id="logInError" class="error" *ngIf="errorMessage === 'Unverified'">
+        <Label>Please Verify Email First</Label>
+        </div>
+
+      <!-- CheckBox -->
+      <div id="remember"
+      class="checkbox">
+      <label>
+      <input type="checkbox"
+      value="remember-me">
+      Remember me
+      </label>
+      </div>
+
+      <!-- SubmitButton -->
+      <button class="btn btn-lg btn-primary btn-block btn-signin"
+      type="submit"
+      [disabled]="!f.valid"
+      value="Log-In">
+      LogIn
+      </button>
+   </form>
+
+    <!-- forSignUpLink -->
+    <a href="signup" class="signup">
+      Don't have account ? Click Here!
+    </a>
+  </div>
+  </div>
+

@@ -1,0 +1,6 @@
+.navbar{
+  background-image: url(/src/assets/s.jpg);
+  height:85px;
+  position: sticky;
+  width: 100%;
+}

@@ -1,0 +1,102 @@
+  <app-navbar></app-navbar>
+  <div class="container contact-form">
+    <form method="post"
+    (ngSubmit)="updateEvent($event, f)"
+    #f="ngForm"
+    [noValidate]>
+
+      <h3>Update Event </h3>
+      <div class="row">
+        <div class="col-md-6">
+
+          <div class="form-group">
+            <span>Name of Event: </span>
+            <input type="text"
+            name="Name"
+            class="form-control"
+            value=""
+            placeholder="Name Of Event"
+            [(ngModel)]="event.name"
+            #Name="ngModel"
+            required>
+          </div>
+
+         <div>
+             <span>Name Of Organization:    
+             </span> 
+              <input
+              name="Organization"
+              class="form-control"
+              placeholder="Name Of Organization"
+              value=""
+              [(ngModel)]="event.organization"
+              #Organization="ngModel"
+              required>            
+            </div>
+
+
+          <div class="form-group">
+            <span>Time: </span>
+            <input type="time"
+            name="Time"
+            class="form-control"
+            value=""
+            [(ngModel)]="event.time"
+            #Time="ngModel"
+            required>
+          </div>
+
+
+          <div class="form-group">
+            <span>Date: </span>
+            <input type="date"
+            name="Date"
+            class="form-control"
+            value=""
+            [(ngModel)]="event.date"
+            #Date="ngModel"
+            required>
+          </div>
+<br><br>
+          <div class="form-group">
+           <button name="btnSubmit"
+            class="btnContact"
+            type="submit"
+            value="Update"
+            [disabled]="!f.valid">
+            Update
+           </button>
+          </div>
+        </div>
+
+
+        <div class="col-md-6">
+          <div class="form-group">
+            <span>Venue: </span>
+            <input type="text"
+            name="Venue"
+            class="form-control"
+            placeholder="Venue"
+            value=""
+            [(ngModel)]="event.venue"
+            #Venue="ngModel"
+            required>
+          </div>
+
+          <div class="form-group">
+            <span>Description of Event: </span>
+             <textarea type="text"
+             class="form-control"
+             placeholder="Describe Your Events Here"
+             name="Description"
+             [(ngModel)]="event.description"
+              #Description="ngModel"
+              style="width: 100%; height: 198px;"
+              required>
+            </textarea>
+
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>

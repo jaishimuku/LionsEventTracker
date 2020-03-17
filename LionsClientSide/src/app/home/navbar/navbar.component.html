@@ -1,0 +1,28 @@
+<nav class="navbar fixed-top navbar-expand-lg navbar bg">
+  <a class="navbar-brand" href="home" style="color:white; font-family: Forte; font-size: 50px;"><i>LionsEventTracker</i></a>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item active-">
+        <a class="nav-link" href="home" style="color: white; margin-right:25px;">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="eventcreate" *ngIf="isAdmin" style="color: white; margin-right:25px;">CreateEvent</a>
+      </li>
+
+
+      <li class="nav-item">
+        <a class="nav-link" href="profile" style="color: white; margin-right:25px;">Profile</a>
+      </li>
+
+      <li class="nav-item">
+          <a class="nav-link" target="_blank" href="https://www2.southeastern.edu/helios/" style="color: white; margin-right:25px;">SELU Calender</a>
+        </li>
+
+      <li class="nav-item">
+        <a class="nav-link" a (click)="logout ($event)" href="login" style="color: white; margin-right:25px;">LogOut</a>
+      </li>
+
+    </ul>
+  </div>
+</nav>

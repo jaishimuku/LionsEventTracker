@@ -1,0 +1,17 @@
+.navbar {
+  margin-top: 85px;
+  width: 100%;
+  background-color: white;
+}
+#mm{
+  height: 30px;
+  width: 30px;
+}
+#fix{
+  position: fixed;
+  bottom: 0;
+  top: 150px;
+}
+.selu{
+  margin-left: 45px;
+}

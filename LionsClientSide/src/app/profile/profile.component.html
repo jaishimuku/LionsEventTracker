@@ -1,0 +1,39 @@
+<app-navbar></app-navbar>
+<div id="bg"></div>
+<div class="a">
+  <h5> Profile</h5>
+</div>
+<div class="container1">
+<div class="row">
+  <div class="col-md-5">
+      <img style="height: 330px; width:330px; border-radius: 150px"class="img-circle" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg">
+  </div>
+  <div class="col-md-5">
+  <div class="container" >
+    <br>
+      <h1>{{user?.firstName}} {{user?.lastName}}</h1>
+
+     <div *ngIf="user?.isAdmin">
+          <b>
+           an Admin
+      </b></div>
+      <div *ngIf="!user?.isAdmin">
+          <b>
+           an User
+      </b></div>
+
+
+    </div>
+     <hr>
+    <ul class="container details" >
+
+      <li><p>UserName: <b>{{user?.userName}}</b></p></li>
+      <li><p>Email: <b>{{user.email}}</b></p></li>
+    </ul>
+    <hr>
+    <div>
+      <!-- <button type="button" class="btn">Edit Profile</button> -->
+    </div>
+  </div>
+</div>
+</div>

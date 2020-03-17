@@ -1,0 +1,83 @@
+<app-navbar></app-navbar>
+ <nav class="navbar fixed-top navbar-expand-lg navbar bg">
+    <ul class="navbar-nav mr-auto" style="font-size: 20px;">
+      <br>
+        <p></p>
+      </ul>
+     <ul class="navbar-nav mr-auto">
+     <h3>   Upcoming Events: </h3>
+    </ul>
+    <ul class="navbar-nav ml-auto">
+    <div class="m">
+        <input type="text" class="form-control"[(ngModel)]="searchTerm" placeholder="Search"
+        />
+    </div>
+      </ul>
+  </nav>
+<br>
+<br>
+<div class="container-fluid">
+
+  <div class="row">
+    <div class="col-sm-3 fixed">
+      <div id="fix">
+      <!-- Subscribed Events -->
+      <div class="SbdEvnt">
+
+        <!--USERINFO-->
+       <div class="userinfo" style="margin-left:50px;">
+       <img style="height: 220px; width:220px; border-radius: 150px"
+       class="img-circle" 
+       src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg">    
+        </div> 
+       <br>
+      <div class="selu"> 
+          <h2 style="text-align:center;">{{userName}}</h2>
+        </div>
+        
+        <br>
+        <br>
+        </div>
+        </div>
+    </div>
+
+    <!-- Upcoming Events -->
+    <div class="col-sm-9">
+
+      <div class="thumbnail">
+        <div class="caption">
+          <br>
+          <div class="card">
+            <div *ngFor="let event of events | myFilter: searchTerm" class="card-body">
+
+              <div class="card-text">
+
+                <div class="org">
+                  <p style="font-size:25px;">
+                    {{event.organization}}</p>
+
+                </div>
+
+                <p>Event: <i>{{event.name}}</i></p>
+
+                <p> Date: {{event.date | date: 'longDate'}} </p>
+
+                <p> Time: {{event.time}}</p>
+
+                <p> Venue: {{event.venue}}</p>
+
+                <p> Description: <br> {{event.description}}</p>
+    
+                <button class="btn btn-primary" style="background-color:green; margin:10px; " (click)="subscribe()" *ngIf="subscribed">Subscribed</button>
+                <button class="btn btn-primary" *ngIf="!isAdmin" (click)="subscribe(event)" style="margin:10px; ">{{ event.subscribed ? 'Subscribed' : 'Subscribe'}}</button>
+                <button class="btn btn-primary" *ngIf="isAdmin" (click)="UpdateEvent(event)" style="height: 38px;width: 88px;">Update</button>
+                <button class="btn btn-primary" *ngIf="isAdmin" (click)="DeleteEvent(event)" style="margin:10px; height: 38px;width: 88px; background-color: red;">Delete</button>                            
+                <hr>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
